@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Beji HydroFarm - Riwayat Sensor</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/history-style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@2.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+  </head>
+  <body>
+    <div class="history-container">
+      <header class="history-header">
+        <h1>Riwayat Sensor (Rata-rata Harian)</h1>
+        <p id="historyDateRange">Data Contoh 30 Hari Terakhir</p>
+      </header>
+
+      <div id="historyMessage" class="history-message">Memuat tampilan...</div>
+
+      <div class="chart-container">
+        <canvas id="sensorChart"></canvas>
+      </div>
+
+      <h2>Data Tabel</h2>
+      <div class="table-container">
+        <table id="historyTable">
+          <thead>
+            <tr>
+              <th>Tanggal</th>
+              <th>Avg. Water (%)</th>
+              <th>Avg. Battery (%)</th>
+              <th>Avg. TDS (ppm)</th>
+              <th>Avg. pH</th>
+            </tr>
+          </thead>
+          <tbody id="historyTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+    <nav class="bottom-nav">
+      <a href="home.html" class="nav-item"><i class="fas fa-home"></i></a>
+      <a href="monitoring.html" class="nav-item"
+        ><i class="fas fa-chart-line"></i
+      ></a>
+      <a href="history.html" class="nav-item active"
+        ><i class="fas fa-history"></i
+      ></a>
+      <a href="#" id="logoutButton" class="nav-item" title="Logout (Nonaktif)"
+        ><i class="fas fa-sign-out-alt"></i
+      ></a>
+    </nav>
+
+    <script src="js/history-script.js"></script>
+  </body>
+</html>

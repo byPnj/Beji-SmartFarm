@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Beji HydroFarm - Login/Sign Up</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Beji HydroFarm</h1>
+      </header>
+
+      <div class="tabs">
+        <button class="tab-link active" onclick="openTab(event, 'signIn')">
+          Sign In
+        </button>
+        <button class="tab-link" onclick="openTab(event, 'signUp')">
+          Sign Up
+        </button>
+      </div>
+
+      <div id="signIn" class="tab-content active">
+        <p class="instruction-text">
+          Untuk Dapat Memasuki Aplikasi diharapkan login terlebih dahulu
+        </p>
+        <form id="signInForm" action="#">
+          <div class="input-group">
+            <input type="email" id="signInEmail" placeholder="Email" required />
+          </div>
+          <div class="input-group password-group">
+            <input
+              type="password"
+              id="signInPassword"
+              placeholder="Password"
+              required />
+            <span
+              class="toggle-password"
+              onclick="togglePasswordVisibility('signInPassword', this)">
+              <i class="fas fa-eye"></i>
+            </span>
+          </div>
+          <p id="authErrorSignIn" class="error-message"></p>
+          <button type="submit" class="btn btn-primary">Sign In</button>
+          <button type="button" class="btn btn-secondary">
+            Forgot Password
+          </button>
+        </form>
+        <div class="separator">
+          <span>Or sign in with</span>
+        </div>
+        <button type="button" class="btn btn-google google-signin-button">
+          <img
+            src="https://developers.google.com/identity/images/g-logo.png"
+            alt="Google logo"
+            width="20" />
+          Continue with Google
+        </button>
+      </div>
+
+      <div id="signUp" class="tab-content">
+        <p class="instruction-text">
+          Isi formulir di bawah ini untuk mendaftarkan akun baru.
+        </p>
+        <form id="signUpForm" action="#">
+          <div class="input-group">
+            <input type="email" id="signUpEmail" placeholder="Email" required />
+          </div>
+          <div class="input-group password-group">
+            <input
+              type="password"
+              id="signUpPassword"
+              placeholder="Password"
+              required />
+            <span
+              class="toggle-password"
+              onclick="togglePasswordVisibility('signUpPassword', this)">
+              <i class="fas fa-eye"></i>
+            </span>
+          </div>
+          <div class="input-group password-group">
+            <input
+              type="password"
+              id="confirmPassword"
+              placeholder="Confirm Password"
+              required />
+            <span
+              class="toggle-password"
+              onclick="togglePasswordVisibility('confirmPassword', this)">
+              <i class="fas fa-eye"></i>
+            </span>
+          </div>
+          <p id="authErrorSignUp" class="error-message"></p>
+          <button type="submit" class="btn btn-primary">Create Account</button>
+        </form>
+        <div class="separator">
+          <span>Or sign up with</span>
+        </div>
+        <button type="button" class="btn btn-google google-signup-button">
+          <img
+            src="https://developers.google.com/identity/images/g-logo.png"
+            alt="Google logo"
+            width="20" />
+          Continue with Google
+        </button>
+      </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="js/firebase.js"></script>
+    <script>
+      let app;
+      let auth;
+      try {
+        // Inisialisasi Firebase
+        app = firebase.initializeApp(firebaseConfig);
+        auth = firebase.auth(); // Akses layanan Auth
+        console.log("Firebase Initialized Successfully on index.html");
+      } catch (e) {
+        console.error("Error initializing Firebase:", e);
+        // Tampilkan pesan error ke pengguna jika inisialisasi gagal
+        const errorElement =
+          document.getElementById("authErrorSignIn") ||
+          document.getElementById("authErrorSignUp");
+        if (errorElement) {
+          errorElement.textContent =
+            "Gagal memuat konfigurasi aplikasi. Coba muat ulang halaman.";
+        }
+      }
+    </script>
+    <script src="js/script.js"></script>
+  </body>
+</html>

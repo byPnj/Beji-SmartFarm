@@ -1,0 +1,11 @@
+{
+  "sensorData": {
+    "latest": {
+      "batteryLevel": 88,
+      "phLevel": 6.5,
+      "tdsLevel": 450,
+      "timestamp": 1746465479000,
+      "waterLevel": 75
+    }
+  }
+}

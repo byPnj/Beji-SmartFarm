@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Beji HydroFarm - Beranda</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/home-style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  </head>
+  <body>
+    <div class="home-container">
+      <header class="home-header">
+        <h2>Selamat Datang di Beji HydroFarm</h2>
+        <p>Solusi pertanian hidroponik modern Anda.</p>
+      </header>
+
+      <section class="carousel-section">
+        <div class="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img
+                src="https://via.placeholder.com/600x300/a8e063/ffffff?text=Kebun+Hidroponik"
+                alt="Kebun Hidroponik Beji Farm" />
+              <div class="carousel-caption">
+                <h3>Teknologi Hidroponik Canggih</h3>
+                <p>Menanam lebih efisien, hemat air, dan bebas pestisida.</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img
+                src="https://via.placeholder.com/600x300/56ab2f/ffffff?text=Sayuran+Segar"
+                alt="Sayuran Segar Hidroponik" />
+              <div class="carousel-caption">
+                <h3>Hasil Panen Segar & Berkualitas</h3>
+                <p>Sayuran sehat langsung dari kebun kami.</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img
+                src="https://via.placeholder.com/600x300/4CAF50/ffffff?text=Edukasi+Pertanian"
+                alt="Edukasi Pertanian Modern" />
+              <div class="carousel-caption">
+                <h3>Edukasi & Workshop</h3>
+                <p>Belajar bersama kami tentang pertanian modern.</p>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control prev" onclick="changeSlide(-1)">
+            &#10094;
+          </button>
+          <button class="carousel-control next" onclick="changeSlide(1)">
+            &#10095;
+          </button>
+          <div class="carousel-indicators">
+            <span class="indicator active" onclick="currentSlide(0)"></span>
+            <span class="indicator" onclick="currentSlide(1)"></span>
+            <span class="indicator" onclick="currentSlide(2)"></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="info-section">
+        <div class="info-card">
+          <h3>Tentang Kami</h3>
+          <p>
+            Beji HydroFarm adalah pelopor pertanian hidroponik di area Beji,
+            menghadirkan solusi pangan yang berkelanjutan dan menyehatkan bagi
+            masyarakat.
+          </p>
+        </div>
+        <div class="info-card">
+          <h3>Produk Unggulan</h3>
+          <ul>
+            <li>Selada Romaine</li>
+            <li>Bayam Merah</li>
+            <li>Kangkung Hidroponik</li>
+            <li>Pakcoy</li>
+          </ul>
+        </div>
+        <div class="info-card">
+          <h3>Mengapa Hidroponik?</h3>
+          <p>
+            Lebih hemat air hingga 90%, pertumbuhan tanaman lebih cepat, hasil
+            panen lebih bersih dan bebas dari kontaminasi tanah.
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <nav class="bottom-nav">
+      <a href="home.html" class="nav-item active"
+        ><i class="fas fa-home"></i
+      ></a>
+      <a href="monitoring.html" class="nav-item"
+        ><i class="fas fa-chart-line"></i
+      ></a>
+      <a href="#" id="logoutButton" class="nav-item" title="Logout">
+        <i class="fas fa-sign-out-alt"></i>
+      </a>
+    </nav>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
+    <script src="js/firebase.js"></script>
+    <script src="js/auth-check.js"></script>
+    <script src="js/home-script.js"></script>
+  </body>
+</html>
