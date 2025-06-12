@@ -14,14 +14,15 @@
     <div class="monitor-container">
       <header class="monitor-header">
         <h1>Realtime Monitoring</h1>
+        <p id="currentPlantDisplay" class="current-plant-info">
+          Tanaman Saat Ini: <em>Memuat...</em>
+        </p>
       </header>
 
       <div class="status-bar">
-        <div class="status-icon">
-          <i class="fas fa-water"></i>
-        </div>
+        <div class="status-icon"><i class="fas fa-sliders-h"></i></div>
         <div class="status-text">
-          <span>Status Terkini</span>
+          <span>Status Terkini Sistem</span>
           <small id="lastUpdated">Menunggu data...</small>
         </div>
         <div class="status-refresh" id="refreshButton" title="Muat Ulang Data">
@@ -30,24 +31,6 @@
       </div>
 
       <section class="sensor-grid">
-        <div class="sensor-card" id="waterLevelCard">
-          <h3><i class="fas fa-tint icon-blue"></i> Water Level</h3>
-          <div class="gauge-container">
-            <div class="gauge" id="waterLevelGauge">
-              <div class="gauge-cover"><span class="gauge-value">-%</span></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="sensor-card" id="batteryLevelCard">
-          <h3><i class="fas fa-battery-half icon-orange"></i> Battery Level</h3>
-          <div class="gauge-container">
-            <div class="gauge" id="batteryLevelGauge">
-              <div class="gauge-cover"><span class="gauge-value">-%</span></div>
-            </div>
-          </div>
-        </div>
-
         <div class="sensor-card" id="tdsLevelCard">
           <h3><i class="fas fa-flask icon-green"></i> TDS Level</h3>
           <div class="gauge-container">
@@ -67,18 +50,27 @@
             </div>
           </div>
         </div>
-      </section>
-    </div>
-    <nav class="bottom-nav">
-      <a href="home.html" class="nav-item"><i class="fas fa-home"></i></a>
-      <a href="monitoring.html" class="nav-item active"
-        ><i class="fas fa-chart-line"></i
-      ></a>
-      <a href="index.html" id="logoutButton" class="nav-item" title="Logout"
-        ><i class="fas fa-sign-out-alt"></i
-      ></a>
-    </nav>
+<!--         
+        <div class="sensor-card" id="batteryLevelCard">
+          <h3><i class="fas fa-battery-half icon-orange"></i> Battery Level</h3>
+          <div class="gauge-container">
+            <div class="gauge" id="batteryLevelGauge">
+              <div class="gauge-cover"><span class="gauge-value">-%</span></div>
+            </div>
+          </div>
+        </div>
 
+        <div class="sensor-card" id="motorStateCard">
+          <h3><i class="fas fa-sync-alt icon-grey"></i> Status Motor</h3>
+          <div class="motor-status-display">
+            <span id="motorStateValue" class="state-value state-off">OFF</span>
+          </div>
+        </div>
+      </section> -->
+
+      <section class="settings-section"></section>
+    </div>
+    <nav class="bottom-nav"></nav>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>

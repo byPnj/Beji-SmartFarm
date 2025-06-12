@@ -169,6 +169,44 @@
   color: #333;
 }
 
+/* Style untuk Kartu Status Motor */
+.motor-status-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 120px; /* Samakan dengan .gauge-container jika ingin sejajar */
+  /* Atau atur padding jika tidak pakai height tetap */
+  /* padding: 40px 0; */
+}
+
+.state-value {
+  font-size: 2.5em; /* Ukuran teks besar */
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.state-value.state-on {
+  color: var(--white-color);
+  background-color: var(--primary-color); /* Hijau saat ON */
+}
+
+.state-value.state-off {
+  color: var(--white-color);
+  background-color: var(--error-color); /* Merah saat OFF */
+}
+
+.icon-grey {
+  color: #888;
+} /* Untuk ikon motor jika perlu */
+
+/* Penyesuaian grid jika ada card tanpa gauge */
+.sensor-card#motorStateCard .gauge-container {
+  /* Jika tidak pakai gauge-container di motorStateCard */
+  display: none; /* Sembunyikan jika ada, karena kita pakai .motor-status-display */
+}
+
 /* Responsiveness */
 @media (max-width: 480px) {
   .monitor-container {

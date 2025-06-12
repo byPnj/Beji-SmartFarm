@@ -2,12 +2,19 @@
 // Pastikan variabel 'auth' dan 'database' sudah tersedia dari script inline di HTML
 
 // --- Variabel Global untuk Elemen UI ---
-let waterLevelGauge,
+let motorStateValue,
   tdsLevelGauge,
   phLevelGauge,
   batteryLevelGauge,
   lastUpdatedElement,
   refreshButton;
+
+let currentPlantDisplay,
+  settingsForm,
+  plantTypeInput,
+  tdsTargetAtasInput,
+  tdsBatasBawahInput,
+  settingsMessage;
 
 // --- Variabel Global untuk Listener DB ---
 let dbListenerRef = null;
@@ -21,14 +28,21 @@ const DB_PATH = "sensorData/latest";
 // --- Event Listener: Tunggu DOM siap sebelum ambil elemen & cek auth ---
 document.addEventListener("DOMContentLoaded", () => {
   // Ambil elemen setelah DOM siap
-  waterLevelGauge = document.getElementById("waterLevelGauge");
   tdsLevelGauge = document.getElementById("tdsLevelGauge");
   phLevelGauge = document.getElementById("phLevelGauge");
   batteryLevelGauge = document.getElementById("batteryLevelGauge");
   lastUpdatedElement = document.getElementById("lastUpdated");
   refreshButton = document.getElementById("refreshButton");
+  motorStateValue = document.getElementById("motorStateValue"); // Ambil elemen motor state
 
-  // Panggil pengecekan auth setelah DOM siap
+  currentPlantDisplay = document.getElementById("currentPlantDisplay");
+  settingsForm = document.getElementById("settingsForm");
+  // ... (ambil elemen form settings lainnya) ...
+  plantTypeInput = document.getElementById("plantTypeInput");
+  tdsTargetAtasInput = document.getElementById("tdsTargetAtasInput");
+  tdsBatasBawahInput = document.getElementById("tdsBatasBawahInput");
+  settingsMessage = document.getElementById("settingsMessage");
+
   initializeAuthCheck();
 });
 
@@ -163,6 +177,21 @@ function handleRefreshClick() {
     setTimeout(() => {
       initializeMonitoring();
     }, 100);
+  }
+}
+
+// --- Fungsi BARU untuk Update Tampilan Status Motor ---
+function updateMotorStateDisplay(state) {
+  if (motorStateValue) {
+    const stateText = String(state).toUpperCase();
+    motorStateValue.textContent = stateText;
+    if (stateText === "ON") {
+      motorStateValue.classList.remove("state-off");
+      motorStateValue.classList.add("state-on");
+    } else {
+      motorStateValue.classList.remove("state-on");
+      motorStateValue.classList.add("state-off");
+    }
   }
 }
 
