@@ -30,10 +30,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // Ambil elemen setelah DOM siap
   tdsLevelGauge = document.getElementById("tdsLevelGauge");
   phLevelGauge = document.getElementById("phLevelGauge");
-  batteryLevelGauge = document.getElementById("batteryLevelGauge");
+  //batteryLevelGauge = document.getElementById("batteryLevelGauge");
   lastUpdatedElement = document.getElementById("lastUpdated");
   refreshButton = document.getElementById("refreshButton");
-  motorStateValue = document.getElementById("motorStateValue"); // Ambil elemen motor state
+  //motorStateValue = document.getElementById("motorStateValue"); // Ambil elemen motor state
 
   currentPlantDisplay = document.getElementById("currentPlantDisplay");
   settingsForm = document.getElementById("settingsForm");
@@ -181,6 +181,7 @@ function handleRefreshClick() {
 }
 
 // --- Fungsi BARU untuk Update Tampilan Status Motor ---
+/*
 function updateMotorStateDisplay(state) {
   if (motorStateValue) {
     const stateText = String(state).toUpperCase();
@@ -193,7 +194,7 @@ function updateMotorStateDisplay(state) {
       motorStateValue.classList.add("state-off");
     }
   }
-}
+}*/
 
 // --- Fungsi Utama Inisialisasi Monitoring (Pasang Listener DB) ---
 function initializeMonitoring() {
@@ -218,6 +219,7 @@ function initializeMonitoring() {
 
       if (data && typeof data === "object") {
         // updateGauge(element, rawValue, unit, minRange, maxRange, color, decimalPlaces);
+        /*
         updateGauge(
           waterLevelGauge,
           data.waterLevel,
@@ -235,7 +237,7 @@ function initializeMonitoring() {
           100,
           "#fd7e14",
           0
-        );
+        );*/
         updateGauge(tdsLevelGauge, data.tdsLevel, "ppm", 0, 1000, "#28a745", 0); // Sesuaikan maxRange (1000?)
         updateGauge(phLevelGauge, data.phLevel, "", 0, 14, "#dc3545", 1); // 1 desimal untuk pH
         updateTimestamp(data.timestamp);
