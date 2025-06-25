@@ -59,7 +59,7 @@
 .carousel-item img {
   width: 100%;
   display: block; /* Hilangkan spasi bawah default */
-  max-height: 300px; /* Batasi tinggi gambar */
+  max-height: 70vh; /* Batasi tinggi gambar */
   object-fit: cover; /* Pastikan gambar menutupi area tanpa distorsi */
 }
 
